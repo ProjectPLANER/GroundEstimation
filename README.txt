@@ -1,3 +1,6 @@
+To compile, navigate to the project folder in terminal and type the command "make".
+The program is compiled used CMake and C++ compiler GCC.
+
 USAGE:
 ./interpolation_main <-a0/1> <DEM_Path> <NoValue> <Mask_Path> [-i0/1] 
 
@@ -10,4 +13,7 @@ USAGE:
 NOTE: You should have OpenCV and libtiff installed to compile the programme. 
 Programme tested and compiled using 
 - OpenCV version 4.2.0	
+https://opencv.org/
+https://www.learnopencv.com/install-opencv-4-on-ubuntu-18-04/
 - libtiff version 4.1.0
+http://www.libtiff.org/
