@@ -1,0 +1,146 @@
+\hypertarget{namespacecvp__ce}{}\section{cvp\+\_\+ce Namespace Reference}
+\label{namespacecvp__ce}\index{cvp\+\_\+ce@{cvp\+\_\+ce}}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacecvp__ce_ab01ec866d7352423868c92256099a93e}\label{namespacecvp__ce_ab01ec866d7352423868c92256099a93e}} 
+typedef std\+::vector$<$ std\+::pair$<$ cv\+::\+Point2i, cv\+::\+Point2i $>$ $>$ {\bfseries curve\+Patch}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacecvp__ce_a2f7e3603ca020f13c8cee162c45321c6}{find\+Voids} (const cv\+::\+Mat \&grid, const double no\+Value, curve\+Patch \&u\+\_\+curve, curve\+Patch \&v\+\_\+curve, curve\+Patch \&w\+\_\+curve, curve\+Patch \&t\+\_\+curve)
+\begin{DoxyCompactList}\small\item\em This function finds the begin and end vertices of every void in \char`\"{}grid\char`\"{}, along every curve in each of 4 directions (\hyperlink{namespacecvp__ce_DIRECTIONS}{u}, \hyperlink{namespacecvp__ce_DIRECTIONS}{v}, \hyperlink{namespacecvp__ce_DIRECTIONS}{w}, \hyperlink{namespacecvp__ce_DIRECTIONS}{t}). Each vertex pair is stored in the corresponding direction\+\_\+curve\+Patch. \end{DoxyCompactList}\item 
+void \hyperlink{namespacecvp__ce_a7b4696f21a2858e3715631384bcb627c}{hermite\+Smooth} (cv\+::\+Mat \&grid, const double no\+Value, const cv\+::\+Point2i beg, const cv\+::\+Point2i end, const cv\+::\+Point2i direction)
+\begin{DoxyCompactList}\small\item\em This function takes user input \char`\"{}beg\char`\"{} and \char`\"{}end\char`\"{}, which specify the start and end points of a line in the direction \char`\"{}direction\char`\"{}. Cubic Hermite curves are used to estimate the values of collinear points between beg and end. These estimates are stored at the corresponding coordinate positions in \char`\"{}grid\char`\"{}. \end{DoxyCompactList}\item 
+void \hyperlink{namespacecvp__ce_a2c0695d79d1333faa98819c5d9cb3e4d}{interpolate} (cv\+::\+Mat \&grid, const cv\+::\+Mat \&mask)
+\begin{DoxyCompactList}\small\item\em This function will use the binary mask \char`\"{}mask\char`\"{} to determine which values in \char`\"{}grid\char`\"{} to estimate. These values will be estimated using Wecker at al.\textquotesingle{}s contextual void patching algorithm and the estimates will be stored in \char`\"{}grid\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+August 2020
+\end{DoxyDate}
+The functions in this namespace handle all manipulation of data required to perform inverse distance weighting interpolation method.
+
+\label{namespacecvp__ce_DIRECTIONS}%
+\Hypertarget{namespacecvp__ce_DIRECTIONS}%
+cv\+::\+Point2i {\bfseries u}(0,1) --- static variable representing \textquotesingle{}u\textquotesingle{} direction vector ~\newline
+ cv\+::\+Point2i {\bfseries v}(1,0) --- static variable representing \textquotesingle{}v\textquotesingle{} direction vector ~\newline
+ cv\+::\+Point2i {\bfseries w}(-\/1,1) --- static variable representing \textquotesingle{}w\textquotesingle{} direction vector ~\newline
+ cv\+::\+Point2i {\bfseries t}(1,1) --- static variable representing \textquotesingle{}t\textquotesingle{} direction vector ~\newline
+ 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacecvp__ce_a2f7e3603ca020f13c8cee162c45321c6}\label{namespacecvp__ce_a2f7e3603ca020f13c8cee162c45321c6}} 
+\index{cvp\+\_\+ce@{cvp\+\_\+ce}!find\+Voids@{find\+Voids}}
+\index{find\+Voids@{find\+Voids}!cvp\+\_\+ce@{cvp\+\_\+ce}}
+\subsubsection{\texorpdfstring{find\+Voids()}{findVoids()}}
+{\footnotesize\ttfamily void cvp\+\_\+ce\+::find\+Voids (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{grid,  }\item[{const double}]{no\+Value,  }\item[{curve\+Patch \&}]{u\+\_\+curve,  }\item[{curve\+Patch \&}]{v\+\_\+curve,  }\item[{curve\+Patch \&}]{w\+\_\+curve,  }\item[{curve\+Patch \&}]{t\+\_\+curve }\end{DoxyParamCaption})}
+
+
+
+This function finds the begin and end vertices of every void in \char`\"{}grid\char`\"{}, along every curve in each of 4 directions (\hyperlink{namespacecvp__ce_DIRECTIONS}{u}, \hyperlink{namespacecvp__ce_DIRECTIONS}{v}, \hyperlink{namespacecvp__ce_DIRECTIONS}{w}, \hyperlink{namespacecvp__ce_DIRECTIONS}{t}). Each vertex pair is stored in the corresponding direction\+\_\+curve\+Patch. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & cv\+::\+Mat const reference --- Matrix of values. \\
+\hline
+{\em no\+Value} & double const value --- Missing points in \char`\"{}grid\char`\"{} have this value. \\
+\hline
+{\em u\+\_\+curve} & curve\+Patch reference --- A vector where start and end vertices will be stored along \hyperlink{namespacecvp__ce_DIRECTIONS}{u} direction. \\
+\hline
+{\em v\+\_\+curve} & curve\+Patch reference --- A vector where start and end vertices will be stored along \hyperlink{namespacecvp__ce_DIRECTIONS}{v} direction. \\
+\hline
+{\em w\+\_\+curve} & curve\+Patch reference --- A vector where start and end vertices will be stored along \hyperlink{namespacecvp__ce_DIRECTIONS}{w} direction. \\
+\hline
+{\em t\+\_\+curve} & curve\+Patch reference --- A vector where start and end vertices will be stored along \hyperlink{namespacecvp__ce_DIRECTIONS}{t} direction.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+C\+A\+L\+LS TO\+: none
+
+C\+A\+L\+L\+ED F\+R\+OM\+: \hyperlink{namespacecvp__ce_a2c0695d79d1333faa98819c5d9cb3e4d}{interpolate}
+
+M\+E\+T\+H\+OD\+: The following is pseudocode describing how the function works.
+\begin{DoxyEnumerate}
+\item Empty u\+\_\+curve, v\+\_\+curve, w\+\_\+curve and t\+\_\+curve vectors.
+\item ... 
+\end{DoxyEnumerate}\mbox{\Hypertarget{namespacecvp__ce_a7b4696f21a2858e3715631384bcb627c}\label{namespacecvp__ce_a7b4696f21a2858e3715631384bcb627c}} 
+\index{cvp\+\_\+ce@{cvp\+\_\+ce}!hermite\+Smooth@{hermite\+Smooth}}
+\index{hermite\+Smooth@{hermite\+Smooth}!cvp\+\_\+ce@{cvp\+\_\+ce}}
+\subsubsection{\texorpdfstring{hermite\+Smooth()}{hermiteSmooth()}}
+{\footnotesize\ttfamily void cvp\+\_\+ce\+::hermite\+Smooth (\begin{DoxyParamCaption}\item[{cv\+::\+Mat \&}]{grid,  }\item[{const double}]{no\+Value,  }\item[{const cv\+::\+Point2i}]{beg,  }\item[{const cv\+::\+Point2i}]{end,  }\item[{const cv\+::\+Point2i}]{direction }\end{DoxyParamCaption})}
+
+
+
+This function takes user input \char`\"{}beg\char`\"{} and \char`\"{}end\char`\"{}, which specify the start and end points of a line in the direction \char`\"{}direction\char`\"{}. Cubic Hermite curves are used to estimate the values of collinear points between beg and end. These estimates are stored at the corresponding coordinate positions in \char`\"{}grid\char`\"{}. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}; Nils Pipenbrinck (1998), Hermite Curve Interpolation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & cv\+::\+Mat reference --- Matrix of values. \\
+\hline
+{\em no\+Value} & double const value --- Missing points in \char`\"{}grid\char`\"{} have this value. \\
+\hline
+{\em beg} & cv\+::\+Point2i const value --- Point coordinates indicating position in \char`\"{}grid\char`\"{} to begin hermite curve interpolation. \\
+\hline
+{\em end} & cv\+::\+Point2i const value --- Point coordinates indicating position in \char`\"{}grid\char`\"{} to end hermite curve interpolation. Must be collinear with \char`\"{}beg\char`\"{} in the positive direction of vector \char`\"{}direction\char`\"{}. \\
+\hline
+{\em direction} & cv\+::\+Point2i const value --- Vector coordinates of the direction of the curve. Treated as a unit vector i.\+e. all distances are scaled with its norm.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+C\+A\+L\+LS TO\+: none
+
+C\+A\+L\+L\+ED F\+R\+OM\+: \hyperlink{namespacecvp__ce_a2c0695d79d1333faa98819c5d9cb3e4d}{interpolate}
+
+M\+E\+T\+H\+OD\+: The following is pseudocode describing how the function works.
+\begin{DoxyEnumerate}
+\item ... 
+\end{DoxyEnumerate}\mbox{\Hypertarget{namespacecvp__ce_a2c0695d79d1333faa98819c5d9cb3e4d}\label{namespacecvp__ce_a2c0695d79d1333faa98819c5d9cb3e4d}} 
+\index{cvp\+\_\+ce@{cvp\+\_\+ce}!interpolate@{interpolate}}
+\index{interpolate@{interpolate}!cvp\+\_\+ce@{cvp\+\_\+ce}}
+\subsubsection{\texorpdfstring{interpolate()}{interpolate()}}
+{\footnotesize\ttfamily void cvp\+\_\+ce\+::interpolate (\begin{DoxyParamCaption}\item[{cv\+::\+Mat \&}]{grid,  }\item[{const cv\+::\+Mat \&}]{mask }\end{DoxyParamCaption})}
+
+
+
+This function will use the binary mask \char`\"{}mask\char`\"{} to determine which values in \char`\"{}grid\char`\"{} to estimate. These values will be estimated using Wecker at al.\textquotesingle{}s contextual void patching algorithm and the estimates will be stored in \char`\"{}grid\char`\"{}. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}; Wecker et al. (2007), Contextual Void Patching for Digital Elevation Model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & cv\+::\+Mat reference --- Matrix containing known points. \\
+\hline
+{\em mask} & cv\+::\+Mat const reference --- Binary mask showing points to be interpolated. Must have the same dimensions as grid.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+C\+A\+L\+LS TO\+: find\+Voids, \hyperlink{namespacecvp__ce_a7b4696f21a2858e3715631384bcb627c}{hermite\+Smooth}
+
+C\+A\+L\+L\+ED F\+R\+OM\+: main
+
+M\+E\+T\+H\+OD\+: The following is pseudocode describing how the function works.
+\begin{DoxyEnumerate}
+\item Find start and end points of voids along all curves in the 4 \hyperlink{namespacecvp__ce_DIRECTIONS}{directions}
+\item Store the void coordinate pairs
+\item At each void coordinate pair, build a hermite curve interpolated patch between the beginning and end points
+\item Calculate the minimum distance to a known point for every missing point in \char`\"{}grid\char`\"{} in each \hyperlink{namespacecvp__ce_DIRECTIONS}{direction}
+\item For every missing point M\+: 5.\+1. calculate the sum of inverse distances \begin{DoxyItemize}
+\item {\ttfamily inv\+Total} in all 4 \hyperlink{namespacecvp__ce_DIRECTIONS}{directions} 5.\+2. weight the hermite solution in each direction with the inverse minimum distance 5.\+3. add the 4 weighted hermite solutions 5.\+4. divide the weighted sum by \item {\ttfamily inv\+Total} and store the answer at M 6 end loop 7 return \end{DoxyItemize}
+
+\end{DoxyEnumerate}

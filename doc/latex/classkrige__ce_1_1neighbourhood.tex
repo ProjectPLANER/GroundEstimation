@@ -1,0 +1,75 @@
+\hypertarget{classkrige__ce_1_1neighbourhood}{}\section{krige\+\_\+ce\+:\+:neighbourhood Class Reference}
+\label{classkrige__ce_1_1neighbourhood}\index{krige\+\_\+ce\+::neighbourhood@{krige\+\_\+ce\+::neighbourhood}}
+
+
+Objects of this class store \hyperlink{classkrige__ce_1_1Node}{Node} objects. The program which uses this class can declare and initialise neighbourhood objects, add node objects to the neighbourhood, iterate through \hyperlink{classkrige__ce_1_1Node}{Node} objects in the neighbourhood, access the size of the neighbourhood, and access the \hyperlink{classkrige__ce_1_1Node}{Node} objects in the neighbourhood.  
+
+
+
+
+{\ttfamily \#include $<$krige\+Handler.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_a36edf2c32cd3fffa3c157b5a42c4ba59}\label{classkrige__ce_1_1neighbourhood_a36edf2c32cd3fffa3c157b5a42c4ba59}} 
+typedef std\+::vector$<$ \hyperlink{classkrige__ce_1_1Node}{Node} $>$\+::iterator {\bfseries iterator}
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_abff620da22ea32f8c561cc912580361a}\label{classkrige__ce_1_1neighbourhood_abff620da22ea32f8c561cc912580361a}} 
+typedef std\+::vector$<$ \hyperlink{classkrige__ce_1_1Node}{Node} $>$\+::const\+\_\+iterator {\bfseries const\+\_\+iterator}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_a3beaf6ab3c37347d985db5f32af4a09e}\label{classkrige__ce_1_1neighbourhood_a3beaf6ab3c37347d985db5f32af4a09e}} 
+{\bfseries neighbourhood} (size\+\_\+t n)
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_a9ab7936dd1bad5f419554567420966ef}\label{classkrige__ce_1_1neighbourhood_a9ab7936dd1bad5f419554567420966ef}} 
+void {\bfseries add\+\_\+node} (\hyperlink{classkrige__ce_1_1Node}{Node} n)
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_a29881b6d0db87db9939c16df7e49a8d8}\label{classkrige__ce_1_1neighbourhood_a29881b6d0db87db9939c16df7e49a8d8}} 
+iterator {\bfseries begin} ()
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_abc7d6e7807ee124738820af73069400e}\label{classkrige__ce_1_1neighbourhood_abc7d6e7807ee124738820af73069400e}} 
+iterator {\bfseries end} ()
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_acb9c98e52a34b9edd756405c4d33bf3c}\label{classkrige__ce_1_1neighbourhood_acb9c98e52a34b9edd756405c4d33bf3c}} 
+const\+\_\+iterator {\bfseries begin} () const
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_af25fdd5ff0d4e60d0c1530aab650e51f}\label{classkrige__ce_1_1neighbourhood_af25fdd5ff0d4e60d0c1530aab650e51f}} 
+const\+\_\+iterator {\bfseries end} () const
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_a482e5d6ab1d83d685aa01059f9ccbee2}\label{classkrige__ce_1_1neighbourhood_a482e5d6ab1d83d685aa01059f9ccbee2}} 
+unsigned int {\bfseries size} () const
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_aba7f3b826c9fff2e8ff9d2d8c9729f21}\label{classkrige__ce_1_1neighbourhood_aba7f3b826c9fff2e8ff9d2d8c9729f21}} 
+bool {\bfseries is\+\_\+empty} () const
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_a1cbea6f467aecfefe03e7e3f5459fda2}\label{classkrige__ce_1_1neighbourhood_a1cbea6f467aecfefe03e7e3f5459fda2}} 
+\hyperlink{classkrige__ce_1_1Node}{Node} \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (size\+\_\+t i)
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_a9deba617548df1d4e46f92e471595d33}\label{classkrige__ce_1_1neighbourhood_a9deba617548df1d4e46f92e471595d33}} 
+const \hyperlink{classkrige__ce_1_1Node}{Node} \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (size\+\_\+t i) const
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1neighbourhood_a870b3b3bc046d53136947e60856a6984}\label{classkrige__ce_1_1neighbourhood_a870b3b3bc046d53136947e60856a6984}} 
+std\+::vector$<$ \hyperlink{classkrige__ce_1_1Node}{Node} $>$ {\bfseries vec}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Objects of this class store \hyperlink{classkrige__ce_1_1Node}{Node} objects. The program which uses this class can declare and initialise neighbourhood objects, add node objects to the neighbourhood, iterate through \hyperlink{classkrige__ce_1_1Node}{Node} objects in the neighbourhood, access the size of the neighbourhood, and access the \hyperlink{classkrige__ce_1_1Node}{Node} objects in the neighbourhood. 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}; Gs\+T\+L-\/1.\+2.\+1 (Nicolas Remy. Stanford University) 
+\end{DoxyAuthor}
+\begin{DoxySeeAlso}{See also}
+std\+::vector 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+krige\+Handler.\+h\end{DoxyCompactItemize}

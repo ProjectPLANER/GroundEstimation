@@ -1,0 +1,54 @@
+\hypertarget{classkrige__ce_1_1Node}{}\section{krige\+\_\+ce\+:\+:Node Class Reference}
+\label{classkrige__ce_1_1Node}\index{krige\+\_\+ce\+::\+Node@{krige\+\_\+ce\+::\+Node}}
+
+
+Objects of this class type will store 2-\/dimensional coordinates of a point in loc\+\_\+ and its value in pval\+\_\+. The program which uses this class can declare and initialise \hyperlink{classkrige__ce_1_1Node}{Node} objects, access loc\+\_\+ and pval\+\_\+, and compare the positions of 2 \hyperlink{classkrige__ce_1_1Node}{Node} objects.  
+
+
+
+
+{\ttfamily \#include $<$krige\+Handler.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1Node_a8e86ba6918f038a7bfdd43dce943c21c}\label{classkrige__ce_1_1Node_a8e86ba6918f038a7bfdd43dce943c21c}} 
+typedef double {\bfseries property\+\_\+type}
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1Node_aa95924c435b829ac68401c14fae1e268}\label{classkrige__ce_1_1Node_aa95924c435b829ac68401c14fae1e268}} 
+typedef cv\+::\+Point2i {\bfseries location\+\_\+type}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1Node_ab7cf6ac84866959c63ac5da4b4dfb19c}\label{classkrige__ce_1_1Node_ab7cf6ac84866959c63ac5da4b4dfb19c}} 
+{\bfseries Node} (int x, int y, property\+\_\+type pval)
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1Node_a7a02fb3b97ae4f7472ddf44730dbe788}\label{classkrige__ce_1_1Node_a7a02fb3b97ae4f7472ddf44730dbe788}} 
+{\bfseries Node} (cv\+::\+Point2i loc, property\+\_\+type pval)
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1Node_a108c775d615eef2f14f63e2c603c4e60}\label{classkrige__ce_1_1Node_a108c775d615eef2f14f63e2c603c4e60}} 
+location\+\_\+type {\bfseries location} () const
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1Node_a2418e7e73c58f5288747419d564de75c}\label{classkrige__ce_1_1Node_a2418e7e73c58f5288747419d564de75c}} 
+property\+\_\+type \& {\bfseries property\+\_\+value} ()
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1Node_a05fb31d493d66fe8699948681049e03b}\label{classkrige__ce_1_1Node_a05fb31d493d66fe8699948681049e03b}} 
+const property\+\_\+type \& {\bfseries property\+\_\+value} () const
+\item 
+\mbox{\Hypertarget{classkrige__ce_1_1Node_a65b916a73c69103e5ae98b9a2fc8a63c}\label{classkrige__ce_1_1Node_a65b916a73c69103e5ae98b9a2fc8a63c}} 
+bool {\bfseries operator==} (const \hyperlink{classkrige__ce_1_1Node}{Node} \&rhs) const
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Objects of this class type will store 2-\/dimensional coordinates of a point in loc\+\_\+ and its value in pval\+\_\+. The program which uses this class can declare and initialise \hyperlink{classkrige__ce_1_1Node}{Node} objects, access loc\+\_\+ and pval\+\_\+, and compare the positions of 2 \hyperlink{classkrige__ce_1_1Node}{Node} objects. 
+
+\begin{DoxyAuthor}{Author}
+Gs\+T\+L-\/1.\+2.\+1 (Nicolas Remy. Stanford University) 
+\end{DoxyAuthor}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+krige\+Handler.\+h\end{DoxyCompactItemize}

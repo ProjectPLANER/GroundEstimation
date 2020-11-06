@@ -1,0 +1,132 @@
+\hypertarget{namespaceidw__ce}{}\section{idw\+\_\+ce Namespace Reference}
+\label{namespaceidw__ce}\index{idw\+\_\+ce@{idw\+\_\+ce}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespaceidw__ce_ae1c5ab8c0578cf0103125e97fe9b69e9}{nearest\+Neighbour} (cv\+::\+Mat \&dataset, const double \&no\+Value, const double \&ignore)
+\begin{DoxyCompactList}\small\item\em This function estimates missing values in \char`\"{}dataset\char`\"{} by setting the value to the value of its nearest known neighbour. If there are multiple nearest neighbours, the average is taken and it stores the estimates in "dataset. \end{DoxyCompactList}\item 
+void \hyperlink{namespaceidw__ce_a0353314a195777f8ab2baa3d1aa61dcb}{iterate} (cv\+::\+Mat \&dataset, const cv\+::\+Mat \&mask, const int block\+Radius, const double \&no\+Value, const double \&ignore)
+\begin{DoxyCompactList}\small\item\em This function performs a single iteration over the Matrix \char`\"{}dataset\char`\"{} and estimates values for missing points---indicated by \char`\"{}mask\char`\"{}---using the local modified Shephard algorithm. {\bfseries See} \hyperlink{namespaceidw__ce_af1a4c1755f98b117f835169d021e5086}{interpolate}. \end{DoxyCompactList}\item 
+int \hyperlink{namespaceidw__ce_af1a4c1755f98b117f835169d021e5086}{interpolate} (cv\+::\+Mat \&dataset, const cv\+::\+Mat \&mask, const int block\+Radius, const double \&no\+Value, const double \&ignore)
+\begin{DoxyCompactList}\small\item\em This function estimates the values of \char`\"{}dataset\char`\"{} indicated by \char`\"{}mask\char`\"{} using an iterative version of local modified Shephard algorithm with the neighbourhood radius set to block\+Radius. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+August 2020 ~\newline
+
+\end{DoxyDate}
+The functions in this namespace handle all manipulation of data required to perform inverse distance weighting interpolation method.
+
+\label{namespaceidw__ce_THRESHOLD}%
+\Hypertarget{namespaceidw__ce_THRESHOLD}%
+double {\bfseries S\+U\+R\+R\+O\+U\+N\+D\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD} --- with default value of 0.\+4 used to determine if there are enough neighbourhood points for estimation 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespaceidw__ce_af1a4c1755f98b117f835169d021e5086}\label{namespaceidw__ce_af1a4c1755f98b117f835169d021e5086}} 
+\index{idw\+\_\+ce@{idw\+\_\+ce}!interpolate@{interpolate}}
+\index{interpolate@{interpolate}!idw\+\_\+ce@{idw\+\_\+ce}}
+\subsubsection{\texorpdfstring{interpolate()}{interpolate()}}
+{\footnotesize\ttfamily int idw\+\_\+ce\+::interpolate (\begin{DoxyParamCaption}\item[{cv\+::\+Mat \&}]{dataset,  }\item[{const cv\+::\+Mat \&}]{mask,  }\item[{const int}]{block\+Radius,  }\item[{const double \&}]{no\+Value,  }\item[{const double \&}]{ignore }\end{DoxyParamCaption})}
+
+
+
+This function estimates the values of \char`\"{}dataset\char`\"{} indicated by \char`\"{}mask\char`\"{} using an iterative version of local modified Shephard algorithm with the neighbourhood radius set to block\+Radius. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}; Local Modified Shephard algorithm
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & cv\+::\+Mat reference --- Matrix of values. \\
+\hline
+{\em mask} & cv\+::\+Mat const reference --- Binary mask showing values to be estimated. Must have the same dimensions as \char`\"{}dataset\char`\"{}. Every corresponding point in \char`\"{}dataset\char`\"{} to be estimated must have value \char`\"{}no\+Value\char`\"{}. \\
+\hline
+{\em block\+Radius} & int const value --- Radius of grid points to use in estimation. \\
+\hline
+{\em no\+Value} & double const value --- Missing points in \char`\"{}dataset\char`\"{} have this value. \\
+\hline
+{\em ignore} & double const value --- Points with this value are not taken into account.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int value --- returns the number of iterations.
+\end{DoxyReturn}
+C\+A\+L\+LS TO\+: \hyperlink{namespaceidw__ce_a0353314a195777f8ab2baa3d1aa61dcb}{iterate}
+
+C\+A\+L\+L\+ED F\+R\+OM\+: main
+
+M\+E\+T\+H\+OD\+: The following is pseudocode describing how the function works.
+\begin{DoxyEnumerate}
+\item while Number\+Of\+Missing\+Values $>$ 0\+: call iterate
+\item return Number\+Of\+Iterations 
+\end{DoxyEnumerate}\mbox{\Hypertarget{namespaceidw__ce_a0353314a195777f8ab2baa3d1aa61dcb}\label{namespaceidw__ce_a0353314a195777f8ab2baa3d1aa61dcb}} 
+\index{idw\+\_\+ce@{idw\+\_\+ce}!iterate@{iterate}}
+\index{iterate@{iterate}!idw\+\_\+ce@{idw\+\_\+ce}}
+\subsubsection{\texorpdfstring{iterate()}{iterate()}}
+{\footnotesize\ttfamily void idw\+\_\+ce\+::iterate (\begin{DoxyParamCaption}\item[{cv\+::\+Mat \&}]{dataset,  }\item[{const cv\+::\+Mat \&}]{mask,  }\item[{const int}]{block\+Radius,  }\item[{const double \&}]{no\+Value,  }\item[{const double \&}]{ignore }\end{DoxyParamCaption})}
+
+
+
+This function performs a single iteration over the Matrix \char`\"{}dataset\char`\"{} and estimates values for missing points---indicated by \char`\"{}mask\char`\"{}---using the local modified Shephard algorithm. {\bfseries See} \hyperlink{namespaceidw__ce_af1a4c1755f98b117f835169d021e5086}{interpolate}. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & cv\+::\+Mat reference --- Matrix of values. \\
+\hline
+{\em mask} & cv\+::\+Mat const reference --- Binary mask showing values to be estimated. Must have the same dimensions as \char`\"{}dataset\char`\"{}. Every corresponding point in \char`\"{}dataset\char`\"{} to be estimated must have value \char`\"{}no\+Value\char`\"{}. \\
+\hline
+{\em block\+Radius} & int const value --- Radius of grid points to use in estimation. \\
+\hline
+{\em no\+Value} & double const value --- Missing points in \char`\"{}dataset\char`\"{} have this value. \\
+\hline
+{\em ignore} & double const value --- Points with this value are not taken into account.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+C\+A\+L\+LS TO\+: none
+
+C\+A\+L\+L\+ED F\+R\+OM\+: \hyperlink{namespaceidw__ce_af1a4c1755f98b117f835169d021e5086}{interpolate}
+
+M\+E\+T\+H\+OD\+: The following is pseudocode describing how the function works.
+\begin{DoxyEnumerate}
+\item calculate filter Matrix of weights
+\item For each missing value M\+: 2.\+1 extract sub\+Matrix of size (2$\ast$block\+Radius-\/1) by (2$\ast$block\+Radius-\/1) centered at M from \char`\"{}dataset\char`\"{} 2.\+2 apply weights to sub\+Matrix 2.\+3 sum values in the weighted Matrix 2.\+4 store sum at M 3 return 
+\end{DoxyEnumerate}\mbox{\Hypertarget{namespaceidw__ce_ae1c5ab8c0578cf0103125e97fe9b69e9}\label{namespaceidw__ce_ae1c5ab8c0578cf0103125e97fe9b69e9}} 
+\index{idw\+\_\+ce@{idw\+\_\+ce}!nearest\+Neighbour@{nearest\+Neighbour}}
+\index{nearest\+Neighbour@{nearest\+Neighbour}!idw\+\_\+ce@{idw\+\_\+ce}}
+\subsubsection{\texorpdfstring{nearest\+Neighbour()}{nearestNeighbour()}}
+{\footnotesize\ttfamily void idw\+\_\+ce\+::nearest\+Neighbour (\begin{DoxyParamCaption}\item[{cv\+::\+Mat \&}]{dataset,  }\item[{const double \&}]{no\+Value,  }\item[{const double \&}]{ignore }\end{DoxyParamCaption})}
+
+
+
+This function estimates missing values in \char`\"{}dataset\char`\"{} by setting the value to the value of its nearest known neighbour. If there are multiple nearest neighbours, the average is taken and it stores the estimates in "dataset. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & cv\+::\+Mat reference --- Matrix of values. \\
+\hline
+{\em no\+Value} & double const value --- Missing points in \char`\"{}dataset\char`\"{} have this value. \\
+\hline
+{\em ignore} & double const value --- Points with this value are not taken into account.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+C\+A\+L\+LS TO\+: none
+
+C\+A\+L\+L\+ED F\+R\+OM\+: main
+
+M\+E\+T\+H\+OD\+: The following is pseudocode describing how the function works.
+\begin{DoxyEnumerate}
+\item For each missing point in \char`\"{}dataset\char`\"{}\+: 1.\+1. radius \+:= 1 1.\+2. begin loop until radius covers all of \char`\"{}dataset\char`\"{}\+: 1.\+2.\+1. search for known points within radius in \char`\"{}dataset\char`\"{} 1.\+2.\+2. if number\+Of\+Known\+Points == 0\+: radius++ 1.\+2.\+3. else\+: exit loop 1.\+3 Set value at missing point = average\+Of\+Found\+Point\+Values 2 return 
+\end{DoxyEnumerate}

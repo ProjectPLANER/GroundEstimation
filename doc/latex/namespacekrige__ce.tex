@@ -1,0 +1,163 @@
+\hypertarget{namespacekrige__ce}{}\section{krige\+\_\+ce Namespace Reference}
+\label{namespacekrige__ce}\index{krige\+\_\+ce@{krige\+\_\+ce}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classkrige__ce_1_1covariance}{covariance}
+\begin{DoxyCompactList}\small\item\em This functor calculates the covariance between 2 points on a plane. \end{DoxyCompactList}\item 
+class \hyperlink{classkrige__ce_1_1neighbourhood}{neighbourhood}
+\begin{DoxyCompactList}\small\item\em Objects of this class store \hyperlink{classkrige__ce_1_1Node}{Node} objects. The program which uses this class can declare and initialise neighbourhood objects, add node objects to the neighbourhood, iterate through \hyperlink{classkrige__ce_1_1Node}{Node} objects in the neighbourhood, access the size of the neighbourhood, and access the \hyperlink{classkrige__ce_1_1Node}{Node} objects in the neighbourhood. \end{DoxyCompactList}\item 
+class \hyperlink{classkrige__ce_1_1Node}{Node}
+\begin{DoxyCompactList}\small\item\em Objects of this class type will store 2-\/dimensional coordinates of a point in loc\+\_\+ and its value in pval\+\_\+. The program which uses this class can declare and initialise \hyperlink{classkrige__ce_1_1Node}{Node} objects, access loc\+\_\+ and pval\+\_\+, and compare the positions of 2 \hyperlink{classkrige__ce_1_1Node}{Node} objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classkrige__ce_1_1neighbourhood}{neighbourhood} \hyperlink{namespacekrige__ce_a861d4c1c299c2a804f97da659a07da9b}{convert\+For\+Krige} (const cv\+::\+Mat \&data, const double na\+Value)
+\begin{DoxyCompactList}\small\item\em This function reads the known points---points with values not equal to \char`\"{}na\+Value\char`\"{}---in \char`\"{}data\char`\"{} and stores them as \hyperlink{classkrige__ce_1_1Node}{Node} objects in the neighbourhhod \char`\"{}\+N\char`\"{}. \end{DoxyCompactList}\item 
+int \hyperlink{namespacekrige__ce_a2baf63b9ce686bca1b18e20e15327b17}{interpolate} (cv\+::\+Mat \&data, const double na\+Value, const int block\+Radius, const double ignore)
+\begin{DoxyCompactList}\small\item\em This function calculates the values for all points in \char`\"{}data\char`\"{} with a value of \char`\"{}na\+Value\char`\"{} using the ordinary Kriging. The value of a point is calculated using all known points in \char`\"{}data\char`\"{} within a distance of \char`\"{}blockradius\char`\"{} around the point. Points with value \char`\"{}ignore\char`\"{} are not used in the estimation. \end{DoxyCompactList}\item 
+int \hyperlink{namespacekrige__ce_a081786b8ed441ac7fc83c31a51c98012}{iterate} (cv\+::\+Mat \&data, const double na\+Value, const int block\+Radius, const double ignore)
+\begin{DoxyCompactList}\small\item\em This function estimates points in \char`\"{}data\char`\"{} with value \char`\"{}na\+Value\char`\"{} using a neighbourhood of radius \char`\"{}blockradius\char`\"{} around each point and ignoring points with value \char`\"{}ignore\char`\"{}. May return \char`\"{}data\char`\"{} with some values still missing. {\bfseries See} \hyperlink{namespacekrige__ce_a2baf63b9ce686bca1b18e20e15327b17}{interpolate}. \end{DoxyCompactList}\item 
+int \hyperlink{namespacekrige__ce_a4b3240fe905c7bb2f9b7435eb32c9a22}{krige} (cv\+::\+Point2i \&missing, const \hyperlink{classkrige__ce_1_1neighbourhood}{neighbourhood} \&N, std\+::vector$<$ float $>$ \&weights)
+\begin{DoxyCompactList}\small\item\em This function calculates the ordinary kriging weights for each point in neighbourhood \char`\"{}\+N\char`\"{}. These weights are stored in \char`\"{}weights\char`\"{} and should be used to estimate \char`\"{}missing\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+\href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+August 2020
+\end{DoxyDate}
+kriging interpolation handler 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacekrige__ce_a861d4c1c299c2a804f97da659a07da9b}\label{namespacekrige__ce_a861d4c1c299c2a804f97da659a07da9b}} 
+\index{krige\+\_\+ce@{krige\+\_\+ce}!convert\+For\+Krige@{convert\+For\+Krige}}
+\index{convert\+For\+Krige@{convert\+For\+Krige}!krige\+\_\+ce@{krige\+\_\+ce}}
+\subsubsection{\texorpdfstring{convert\+For\+Krige()}{convertForKrige()}}
+{\footnotesize\ttfamily \hyperlink{classkrige__ce_1_1neighbourhood}{neighbourhood} krige\+\_\+ce\+::convert\+For\+Krige (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{data,  }\item[{const double}]{na\+Value }\end{DoxyParamCaption})}
+
+
+
+This function reads the known points---points with values not equal to \char`\"{}na\+Value\char`\"{}---in \char`\"{}data\char`\"{} and stores them as \hyperlink{classkrige__ce_1_1Node}{Node} objects in the neighbourhhod \char`\"{}\+N\char`\"{}. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & cv\+::\+Mat const reference --- Matrix of values. \\
+\hline
+{\em na\+Value} & double const value --- Missing points in \char`\"{}data\char`\"{} have this value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+neighbourhood value --- Neighbourhood of all known coordinate points from \char`\"{}data\char`\"{}
+\end{DoxyReturn}
+C\+A\+L\+LS TO\+: std\+::find, \hyperlink{}{neighbourhood\+::neighbourhood}
+
+C\+A\+L\+L\+ED F\+R\+OM\+: \hyperlink{namespacekrige__ce_a081786b8ed441ac7fc83c31a51c98012}{iterate} \mbox{\Hypertarget{namespacekrige__ce_a2baf63b9ce686bca1b18e20e15327b17}\label{namespacekrige__ce_a2baf63b9ce686bca1b18e20e15327b17}} 
+\index{krige\+\_\+ce@{krige\+\_\+ce}!interpolate@{interpolate}}
+\index{interpolate@{interpolate}!krige\+\_\+ce@{krige\+\_\+ce}}
+\subsubsection{\texorpdfstring{interpolate()}{interpolate()}}
+{\footnotesize\ttfamily int krige\+\_\+ce\+::interpolate (\begin{DoxyParamCaption}\item[{cv\+::\+Mat \&}]{data,  }\item[{const double}]{na\+Value,  }\item[{const int}]{block\+Radius,  }\item[{const double}]{ignore }\end{DoxyParamCaption})}
+
+
+
+This function calculates the values for all points in \char`\"{}data\char`\"{} with a value of \char`\"{}na\+Value\char`\"{} using the ordinary Kriging. The value of a point is calculated using all known points in \char`\"{}data\char`\"{} within a distance of \char`\"{}blockradius\char`\"{} around the point. Points with value \char`\"{}ignore\char`\"{} are not used in the estimation. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & cv\+::\+Mat reference --- Matrix of values. \\
+\hline
+{\em na\+Value} & double const value --- Missing points in \char`\"{}data\char`\"{} have this value. \\
+\hline
+{\em block\+Radius} & int const value --- Radius for neighbourhood search. Must be a postive integer. \\
+\hline
+{\em ignore} & double const value --- Value not be used in estimation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int value --- Status of algorithm on exit\+: ~\newline
+ \begin{DoxyItemize}
+\item {\ttfamily 0} no errors ~\newline
+ \item {\ttfamily -\/1} could not find solutions\end{DoxyItemize}
+
+\end{DoxyReturn}
+
+
+C\+A\+L\+LS TO\+: \hyperlink{namespacekrige__ce_a081786b8ed441ac7fc83c31a51c98012}{iterate}
+
+C\+A\+L\+L\+ED F\+R\+OM\+: main
+
+M\+E\+T\+H\+OD\+: The following is pseudocode describing how the function works.
+\begin{DoxyEnumerate}
+\item while Number\+Of\+Missing\+Values $>$ 0\+: 1.\+1. call iterate 1.\+2. if error occurs\+: return -\/1
+\item return 0 
+\end{DoxyEnumerate}\mbox{\Hypertarget{namespacekrige__ce_a081786b8ed441ac7fc83c31a51c98012}\label{namespacekrige__ce_a081786b8ed441ac7fc83c31a51c98012}} 
+\index{krige\+\_\+ce@{krige\+\_\+ce}!iterate@{iterate}}
+\index{iterate@{iterate}!krige\+\_\+ce@{krige\+\_\+ce}}
+\subsubsection{\texorpdfstring{iterate()}{iterate()}}
+{\footnotesize\ttfamily int krige\+\_\+ce\+::iterate (\begin{DoxyParamCaption}\item[{cv\+::\+Mat \&}]{data,  }\item[{const double}]{na\+Value,  }\item[{const int}]{block\+Radius,  }\item[{const double}]{ignore }\end{DoxyParamCaption})}
+
+
+
+This function estimates points in \char`\"{}data\char`\"{} with value \char`\"{}na\+Value\char`\"{} using a neighbourhood of radius \char`\"{}blockradius\char`\"{} around each point and ignoring points with value \char`\"{}ignore\char`\"{}. May return \char`\"{}data\char`\"{} with some values still missing. {\bfseries See} \hyperlink{namespacekrige__ce_a2baf63b9ce686bca1b18e20e15327b17}{interpolate}. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & cv\+::\+Mat reference --- Matrix of values. \\
+\hline
+{\em na\+Value} & double const value --- Missing points in \char`\"{}data\char`\"{} have this value. \\
+\hline
+{\em block\+Radius} & int const value --- Radius for neighbourhood search. Must be a postive integer. \\
+\hline
+{\em ignore} & double const value --- Value not be used in estimation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int value --- Status of algorithm on exit\+: \begin{DoxyItemize}
+\item {\ttfamily 0} no errors\end{DoxyItemize}
+
+\end{DoxyReturn}
+
+
+C\+A\+L\+LS TO\+: \hyperlink{namespacekrige__ce_a861d4c1c299c2a804f97da659a07da9b}{convert\+For\+Krige}, std\+::max, std\+::min, \hyperlink{namespacekrige__ce_a4b3240fe905c7bb2f9b7435eb32c9a22}{krige}
+
+C\+A\+L\+L\+ED F\+R\+OM\+: \hyperlink{namespacekrige__ce_a2baf63b9ce686bca1b18e20e15327b17}{interpolate}
+
+M\+E\+T\+H\+OD\+: The following is pseudocode describing how the function works.
+\begin{DoxyEnumerate}
+\item At each missing point M in \char`\"{}data\char`\"{}\+: 1.\+1. build a neighbourhood of points within block\+Radius blocks around M 1.\+2. if there are not enough neighbourhood points around M\+: continue 1.\+3. else\+: 1.\+3.\+1. calculate kriging weights for each point in the neighbourhood 1.\+3.\+2. calculate weighted sum of neighbourhood points 1.\+3.\+3. store weighted sum at M
+\item return 
+\end{DoxyEnumerate}\mbox{\Hypertarget{namespacekrige__ce_a4b3240fe905c7bb2f9b7435eb32c9a22}\label{namespacekrige__ce_a4b3240fe905c7bb2f9b7435eb32c9a22}} 
+\index{krige\+\_\+ce@{krige\+\_\+ce}!krige@{krige}}
+\index{krige@{krige}!krige\+\_\+ce@{krige\+\_\+ce}}
+\subsubsection{\texorpdfstring{krige()}{krige()}}
+{\footnotesize\ttfamily int krige\+\_\+ce\+::krige (\begin{DoxyParamCaption}\item[{cv\+::\+Point2i \&}]{missing,  }\item[{const \hyperlink{classkrige__ce_1_1neighbourhood}{neighbourhood} \&}]{N,  }\item[{std\+::vector$<$ float $>$ \&}]{weights }\end{DoxyParamCaption})}
+
+
+
+This function calculates the ordinary kriging weights for each point in neighbourhood \char`\"{}\+N\char`\"{}. These weights are stored in \char`\"{}weights\char`\"{} and should be used to estimate \char`\"{}missing\char`\"{}. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}; Gs\+T\+L-\/1.\+2.\+1 (Nicolas Remy. Stanford University).
+
+
+\begin{DoxyParams}{Parameters}
+{\em missing} & cv\+::\+Point2i reference --- Point coordinates to be estimated. \\
+\hline
+{\em N} & neighbourhood const reference --- Vector of known coordinates and values. \\
+\hline
+{\em weights} & std\+::vector$<$float$>$ reference --- Empty vector where calculated weights are stored.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int value --- Status of the krige system at return. {\bfseries see} \href{../../include/GsTL-1.2.1/doc/latex/gtl.tex}{\tt gtl.\+tex}
+\end{DoxyReturn}
+C\+A\+L\+LS TO\+: gstl\+::kriging\+\_\+weights
+
+C\+A\+L\+L\+ED F\+R\+OM\+: \hyperlink{namespacekrige__ce_a081786b8ed441ac7fc83c31a51c98012}{iterate} 

@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8)
+project( interpolate_main )
+find_package( OpenCV REQUIRED )
+include_directories( ${OpenCV_INCLUDE_DIRS} ../include/GsTL-1.2.1/ )
+add_executable( interpolation_main interpolateMain.cpp idwHandler.cpp tiffHandler.cpp krigeHandler.cpp cvpHandler.cpp )
+target_link_libraries( interpolation_main ${OpenCV_LIBS} "tiff" )

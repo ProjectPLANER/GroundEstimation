@@ -1,0 +1,383 @@
+\hypertarget{classtiffHandler}{}\section{tiff\+Handler Class Reference}
+\label{classtiffHandler}\index{tiff\+Handler@{tiff\+Handler}}
+
+
+Objects of this class type will store the grid data of a single-\/band tiff image. The program which uses this class can declare and initialise \hyperlink{classtiffHandler}{tiff\+Handler} objects, have read-\/only access to the following attribute data\+: image height, image width, grid data, filename --- read a tiff file, write a tiff file, mask the contents of the tiff data, replace the value of tiff tags with values from any \hyperlink{classtiffHandler}{tiff\+Handler} object.  
+
+
+
+
+{\ttfamily \#include $<$tiff\+Handler.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtiffHandler_a9274e4f4c7985eb580303d66e0e72cf5}{tiff\+Handler} (cv\+::\+Mat \&\&grid, const std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Constructor for the \hyperlink{classtiffHandler}{tiff\+Handler} class. \end{DoxyCompactList}\item 
+\hyperlink{classtiffHandler_ae0de58defa2ae8612dab8a751ef23e07}{tiff\+Handler} (cv\+::\+Mat \&grid, const std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Constructor for the \hyperlink{classtiffHandler}{tiff\+Handler} class. \end{DoxyCompactList}\item 
+\hyperlink{classtiffHandler_a00f75f3ff7af2c7c972e7290f4797501}{tiff\+Handler} (const std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Constructor for the \hyperlink{classtiffHandler}{tiff\+Handler} class. \end{DoxyCompactList}\item 
+\hyperlink{classtiffHandler_a0c9cbb41ee7faac8dbe193e778ba2c8b}{$\sim$tiff\+Handler} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \hyperlink{classtiffHandler}{tiff\+Handler} class. \end{DoxyCompactList}\item 
+\hyperlink{classtiffHandler_a7bfe3d9b0553461580dcfb8467ec9d6d}{tiff\+Handler} (\hyperlink{classtiffHandler}{tiff\+Handler} \&\&rhs)
+\begin{DoxyCompactList}\small\item\em Move constructor for the \hyperlink{classtiffHandler}{tiff\+Handler} class. \end{DoxyCompactList}\item 
+\hyperlink{classtiffHandler_af4ae13fb1aa69b262fd6e95cf5b4addb}{tiff\+Handler} (const \hyperlink{classtiffHandler}{tiff\+Handler} \&rhs)
+\begin{DoxyCompactList}\small\item\em Copy constructor for the \hyperlink{classtiffHandler}{tiff\+Handler} class. \end{DoxyCompactList}\item 
+\hyperlink{classtiffHandler}{tiff\+Handler} \& \hyperlink{classtiffHandler_aa48648c589647b32caf342d912d3353e}{operator=} (const \hyperlink{classtiffHandler}{tiff\+Handler} \&rhs)
+\begin{DoxyCompactList}\small\item\em Copy assignment operator for the \hyperlink{classtiffHandler}{tiff\+Handler} class. \end{DoxyCompactList}\item 
+\hyperlink{classtiffHandler}{tiff\+Handler} \& \hyperlink{classtiffHandler_a9e7baaba5bdbb6923328be7be47b2b85}{operator=} (\hyperlink{classtiffHandler}{tiff\+Handler} \&\&rhs)
+\begin{DoxyCompactList}\small\item\em Move assignment operator for the \hyperlink{classtiffHandler}{tiff\+Handler} class. \end{DoxyCompactList}\item 
+const int \hyperlink{classtiffHandler_a331aa1ba8bdb2f337f6272e85e38e620}{get\+Width} (void) const
+\begin{DoxyCompactList}\small\item\em Read-\/only accessor method for tiff image width. \end{DoxyCompactList}\item 
+const int \hyperlink{classtiffHandler_a6e5e39cefdee5f9712a512ddb80af2a6}{get\+Height} (void) const
+\begin{DoxyCompactList}\small\item\em Read-\/only accessor method for tiff image height. \end{DoxyCompactList}\item 
+const cv\+::\+Mat \& \hyperlink{classtiffHandler_aa534e76fcbedbc1153f1b61661d4d8c2}{data} (void) const
+\begin{DoxyCompactList}\small\item\em Read-\/only accessor method for grid data. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classtiffHandler_add034c87811bd7c35234fdd3b2a0ada7}{name} (void) const
+\begin{DoxyCompactList}\small\item\em Read-\/only accessor method for tiff image path. \end{DoxyCompactList}\item 
+void \hyperlink{classtiffHandler_a316fecb1eba714d89b378570227a9e41}{mask} (const \hyperlink{classtiffHandler}{tiff\+Handler} \&tH, const double v)
+\begin{DoxyCompactList}\small\item\em This function replaces all values in the calling instance\textquotesingle{}s T\+I\+F\+Fgrid with v using tH as a mask. \end{DoxyCompactList}\item 
+void \hyperlink{classtiffHandler_a2a813af9ec1e322fafc0d5e0a3593cbc}{copy\+Tags} (const \hyperlink{classtiffHandler}{tiff\+Handler} \&tH, bool aer=false)
+\begin{DoxyCompactList}\small\item\em This function saves the calling \hyperlink{classtiffHandler}{tiff\+Handler}\textquotesingle{}s data in a tiff image file using the tag values from tH. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classtiffHandler_a691f65932d0dddc162689603efe9b56b}{save\+Tiff} (T\+I\+FF $\ast$temp\+Tiff, const \hyperlink{classtiffHandler}{tiff\+Handler} \&tH)
+\begin{DoxyCompactList}\small\item\em This function writes the contents of t\+H.\+T\+I\+F\+Fgrid to an already opened tiff file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Objects of this class type will store the grid data of a single-\/band tiff image. The program which uses this class can declare and initialise \hyperlink{classtiffHandler}{tiff\+Handler} objects, have read-\/only access to the following attribute data\+: image height, image width, grid data, filename --- read a tiff file, write a tiff file, mask the contents of the tiff data, replace the value of tiff tags with values from any \hyperlink{classtiffHandler}{tiff\+Handler} object. 
+
+\begin{DoxyAuthor}{Author}
+\href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za} 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtiffHandler_a9274e4f4c7985eb580303d66e0e72cf5}\label{classtiffHandler_a9274e4f4c7985eb580303d66e0e72cf5}} 
+\index{tiff\+Handler@{tiff\+Handler}!tiff\+Handler@{tiff\+Handler}}
+\index{tiff\+Handler@{tiff\+Handler}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{tiff\+Handler()}{tiffHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily tiff\+Handler\+::tiff\+Handler (\begin{DoxyParamCaption}\item[{cv\+::\+Mat \&\&}]{grid,  }\item[{const std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \hyperlink{classtiffHandler}{tiff\+Handler} class. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & cv\+::\+Mat r-\/value reference --- Matrix of values. \\
+\hline
+{\em file\+Name} & std\+::string const value --- Name of tiff image file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new instance of type \hyperlink{classtiffHandler}{tiff\+Handler}
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classtiffHandler_ae0de58defa2ae8612dab8a751ef23e07}{tiff\+Handler(cv\+::\+Mat \& grid, const std\+::string file\+Name)}, std\+::move 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classtiffHandler_ae0de58defa2ae8612dab8a751ef23e07}\label{classtiffHandler_ae0de58defa2ae8612dab8a751ef23e07}} 
+\index{tiff\+Handler@{tiff\+Handler}!tiff\+Handler@{tiff\+Handler}}
+\index{tiff\+Handler@{tiff\+Handler}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{tiff\+Handler()}{tiffHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily tiff\+Handler\+::tiff\+Handler (\begin{DoxyParamCaption}\item[{cv\+::\+Mat \&}]{grid,  }\item[{const std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \hyperlink{classtiffHandler}{tiff\+Handler} class. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & cv\+::\+Mat reference --- Matrix of values. \\
+\hline
+{\em file\+Name} & std\+::string const value --- Name of tiff image file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new instance of type \hyperlink{classtiffHandler}{tiff\+Handler}
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classtiffHandler_a9274e4f4c7985eb580303d66e0e72cf5}{tiff\+Handler(cv\+::\+Mat \&\& grid, const std\+::string file\+Name)} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classtiffHandler_a00f75f3ff7af2c7c972e7290f4797501}\label{classtiffHandler_a00f75f3ff7af2c7c972e7290f4797501}} 
+\index{tiff\+Handler@{tiff\+Handler}!tiff\+Handler@{tiff\+Handler}}
+\index{tiff\+Handler@{tiff\+Handler}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{tiff\+Handler()}{tiffHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily tiff\+Handler\+::tiff\+Handler (\begin{DoxyParamCaption}\item[{const std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \hyperlink{classtiffHandler}{tiff\+Handler} class. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & std\+::string const value --- Name of tiff image file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new instance of type \hyperlink{classtiffHandler}{tiff\+Handler} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtiffHandler_a0c9cbb41ee7faac8dbe193e778ba2c8b}\label{classtiffHandler_a0c9cbb41ee7faac8dbe193e778ba2c8b}} 
+\index{tiff\+Handler@{tiff\+Handler}!````~tiff\+Handler@{$\sim$tiff\+Handler}}
+\index{````~tiff\+Handler@{$\sim$tiff\+Handler}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{$\sim$tiff\+Handler()}{~tiffHandler()}}
+{\footnotesize\ttfamily tiff\+Handler\+::$\sim$tiff\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \hyperlink{classtiffHandler}{tiff\+Handler} class. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za} C\+A\+L\+LS TO\+: cv\+::\+Mat.\+release
+
+C\+A\+L\+L\+ED F\+R\+OM\+: main \mbox{\Hypertarget{classtiffHandler_a7bfe3d9b0553461580dcfb8467ec9d6d}\label{classtiffHandler_a7bfe3d9b0553461580dcfb8467ec9d6d}} 
+\index{tiff\+Handler@{tiff\+Handler}!tiff\+Handler@{tiff\+Handler}}
+\index{tiff\+Handler@{tiff\+Handler}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{tiff\+Handler()}{tiffHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily tiff\+Handler\+::tiff\+Handler (\begin{DoxyParamCaption}\item[{\hyperlink{classtiffHandler}{tiff\+Handler} \&\&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Move constructor for the \hyperlink{classtiffHandler}{tiff\+Handler} class. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & \hyperlink{classtiffHandler}{tiff\+Handler} r-\/value reference --- \hyperlink{classtiffHandler}{tiff\+Handler} object whose values are to be moved to the new \hyperlink{classtiffHandler}{tiff\+Handler} object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new instance of type \hyperlink{classtiffHandler}{tiff\+Handler}
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+std\+::move, \hyperlink{classtiffHandler_af4ae13fb1aa69b262fd6e95cf5b4addb}{tiff\+Handler(const tiff\+Handler \& rhs)} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classtiffHandler_af4ae13fb1aa69b262fd6e95cf5b4addb}\label{classtiffHandler_af4ae13fb1aa69b262fd6e95cf5b4addb}} 
+\index{tiff\+Handler@{tiff\+Handler}!tiff\+Handler@{tiff\+Handler}}
+\index{tiff\+Handler@{tiff\+Handler}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{tiff\+Handler()}{tiffHandler()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily tiff\+Handler\+::tiff\+Handler (\begin{DoxyParamCaption}\item[{const \hyperlink{classtiffHandler}{tiff\+Handler} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Copy constructor for the \hyperlink{classtiffHandler}{tiff\+Handler} class. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & \hyperlink{classtiffHandler}{tiff\+Handler} reference --- \hyperlink{classtiffHandler}{tiff\+Handler} object whose values are to be copied to the new \hyperlink{classtiffHandler}{tiff\+Handler} object. Creates deep copy.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new instance of type \hyperlink{classtiffHandler}{tiff\+Handler}
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classtiffHandler_a7bfe3d9b0553461580dcfb8467ec9d6d}{tiff\+Handler(tiff\+Handler \&\& rhs)} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classtiffHandler_a2a813af9ec1e322fafc0d5e0a3593cbc}\label{classtiffHandler_a2a813af9ec1e322fafc0d5e0a3593cbc}} 
+\index{tiff\+Handler@{tiff\+Handler}!copy\+Tags@{copy\+Tags}}
+\index{copy\+Tags@{copy\+Tags}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{copy\+Tags()}{copyTags()}}
+{\footnotesize\ttfamily void tiff\+Handler\+::copy\+Tags (\begin{DoxyParamCaption}\item[{const \hyperlink{classtiffHandler}{tiff\+Handler} \&}]{tH,  }\item[{bool}]{aer = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+This function saves the calling \hyperlink{classtiffHandler}{tiff\+Handler}\textquotesingle{}s data in a tiff image file using the tag values from tH. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em tH} & \hyperlink{classtiffHandler}{tiff\+Handler} const reference --- \hyperlink{classtiffHandler}{tiff\+Handler} to copy tag values from. \\
+\hline
+{\em aer} & bool value --- Boolean specifying whether to include Aerobotics special tags. Default value is false.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classtiffHandler_a691f65932d0dddc162689603efe9b56b}{save\+Tiff}
+\end{DoxySeeAlso}
+M\+E\+T\+H\+OD\+: The following is pseudocode describing how the function works.
+\begin{DoxyEnumerate}
+\item open both tiff image files\+: tH for reading, this for writing.
+\item read tag values from tH and write them to this image file.
+\item close tH tiff image file.
+\item write image data to this image file.
+\item close this image tiff file. 
+\end{DoxyEnumerate}\mbox{\Hypertarget{classtiffHandler_aa534e76fcbedbc1153f1b61661d4d8c2}\label{classtiffHandler_aa534e76fcbedbc1153f1b61661d4d8c2}} 
+\index{tiff\+Handler@{tiff\+Handler}!data@{data}}
+\index{data@{data}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily const Mat \& tiff\+Handler\+::data (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Read-\/only accessor method for grid data. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+\begin{DoxyReturn}{Returns}
+cv\+::\+Mat const reference --- Matrix containing tiff image data. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtiffHandler_a6e5e39cefdee5f9712a512ddb80af2a6}\label{classtiffHandler_a6e5e39cefdee5f9712a512ddb80af2a6}} 
+\index{tiff\+Handler@{tiff\+Handler}!get\+Height@{get\+Height}}
+\index{get\+Height@{get\+Height}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{get\+Height()}{getHeight()}}
+{\footnotesize\ttfamily const int tiff\+Handler\+::get\+Height (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Read-\/only accessor method for tiff image height. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+\begin{DoxyReturn}{Returns}
+int const value --- Height of tiff image. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtiffHandler_a331aa1ba8bdb2f337f6272e85e38e620}\label{classtiffHandler_a331aa1ba8bdb2f337f6272e85e38e620}} 
+\index{tiff\+Handler@{tiff\+Handler}!get\+Width@{get\+Width}}
+\index{get\+Width@{get\+Width}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{get\+Width()}{getWidth()}}
+{\footnotesize\ttfamily const int tiff\+Handler\+::get\+Width (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Read-\/only accessor method for tiff image width. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+\begin{DoxyReturn}{Returns}
+int const value --- Width of tiff image. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtiffHandler_a316fecb1eba714d89b378570227a9e41}\label{classtiffHandler_a316fecb1eba714d89b378570227a9e41}} 
+\index{tiff\+Handler@{tiff\+Handler}!mask@{mask}}
+\index{mask@{mask}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{mask()}{mask()}}
+{\footnotesize\ttfamily void tiff\+Handler\+::mask (\begin{DoxyParamCaption}\item[{const \hyperlink{classtiffHandler}{tiff\+Handler} \&}]{tH,  }\item[{const double}]{v }\end{DoxyParamCaption})}
+
+
+
+This function replaces all values in the calling instance\textquotesingle{}s T\+I\+F\+Fgrid with v using tH as a mask. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em tH} & \hyperlink{classtiffHandler}{tiff\+Handler} const reference --- \hyperlink{classtiffHandler}{tiff\+Handler} object containing mask. \\
+\hline
+{\em v} & double const value --- Value to apply with mask.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+cv\+::\+Mat\+::set\+To 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classtiffHandler_add034c87811bd7c35234fdd3b2a0ada7}\label{classtiffHandler_add034c87811bd7c35234fdd3b2a0ada7}} 
+\index{tiff\+Handler@{tiff\+Handler}!name@{name}}
+\index{name@{name}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily const std\+::string \& tiff\+Handler\+::name (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Read-\/only accessor method for tiff image path. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+\begin{DoxyReturn}{Returns}
+std\+::string const value --- Path of tiff image file. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtiffHandler_aa48648c589647b32caf342d912d3353e}\label{classtiffHandler_aa48648c589647b32caf342d912d3353e}} 
+\index{tiff\+Handler@{tiff\+Handler}!operator=@{operator=}}
+\index{operator=@{operator=}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{classtiffHandler}{tiff\+Handler} \& tiff\+Handler\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{classtiffHandler}{tiff\+Handler} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Copy assignment operator for the \hyperlink{classtiffHandler}{tiff\+Handler} class. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & \hyperlink{classtiffHandler}{tiff\+Handler} reference --- \hyperlink{classtiffHandler}{tiff\+Handler} object whose values are to be copied to the calling \hyperlink{classtiffHandler}{tiff\+Handler} object. Creates deep copy.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference to the calling \hyperlink{classtiffHandler}{tiff\+Handler} instance.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classtiffHandler_a9e7baaba5bdbb6923328be7be47b2b85}{operator=(tiff\+Handler \&\& rhs)} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classtiffHandler_a9e7baaba5bdbb6923328be7be47b2b85}\label{classtiffHandler_a9e7baaba5bdbb6923328be7be47b2b85}} 
+\index{tiff\+Handler@{tiff\+Handler}!operator=@{operator=}}
+\index{operator=@{operator=}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{classtiffHandler}{tiff\+Handler} \& tiff\+Handler\+::operator= (\begin{DoxyParamCaption}\item[{\hyperlink{classtiffHandler}{tiff\+Handler} \&\&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Move assignment operator for the \hyperlink{classtiffHandler}{tiff\+Handler} class. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & \hyperlink{classtiffHandler}{tiff\+Handler} r-\/value reference --- \hyperlink{classtiffHandler}{tiff\+Handler} object whose values are to be moved to the calling \hyperlink{classtiffHandler}{tiff\+Handler} object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reference to the calling \hyperlink{classtiffHandler}{tiff\+Handler} instance.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classtiffHandler_aa48648c589647b32caf342d912d3353e}{operator=(const tiff\+Handler \& rhs)} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classtiffHandler_a691f65932d0dddc162689603efe9b56b}\label{classtiffHandler_a691f65932d0dddc162689603efe9b56b}} 
+\index{tiff\+Handler@{tiff\+Handler}!save\+Tiff@{save\+Tiff}}
+\index{save\+Tiff@{save\+Tiff}!tiff\+Handler@{tiff\+Handler}}
+\subsubsection{\texorpdfstring{save\+Tiff()}{saveTiff()}}
+{\footnotesize\ttfamily void tiff\+Handler\+::save\+Tiff (\begin{DoxyParamCaption}\item[{T\+I\+FF $\ast$}]{temp\+Tiff,  }\item[{const \hyperlink{classtiffHandler}{tiff\+Handler} \&}]{tH }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+This function writes the contents of t\+H.\+T\+I\+F\+Fgrid to an already opened tiff file. 
+
+C\+R\+E\+D\+IT\+: \href{mailto:emrchi001@myuct.ac.za}{\tt emrchi001@myuct.\+ac.\+za}
+
+
+\begin{DoxyParams}{Parameters}
+{\em temp\+Tiff} & T\+I\+F\+F$\ast$ value --- Pointer to open tiff image file. Ensure it points to an open tiff file. No error checks. Make sure you close the tiff file later in the program. \\
+\hline
+{\em tH} & \hyperlink{classtiffHandler}{tiff\+Handler} const reference --- \hyperlink{classtiffHandler}{tiff\+Handler} object containing image data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classtiffHandler_a2a813af9ec1e322fafc0d5e0a3593cbc}{copy\+Tags}, T\+I\+F\+F\+Write\+Scanline 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+tiff\+Handler.\+h\item 
+tiff\+Handler.\+cpp\end{DoxyCompactItemize}
